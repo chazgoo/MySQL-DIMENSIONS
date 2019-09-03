@@ -1,6 +1,6 @@
 Here goes nothing!
 
- 1. Open mysql
+ ### 1. Open mysql
  ```
 cagood@benthos:~$ mysql
 # Welcome to the MariaDB monitor.  Commands end with ; or \g.
@@ -12,7 +12,7 @@ cagood@benthos:~$ mysql
 
 So, it appears that we're running MariaDB - an open source fork of MySQL. It doesn't appear to be the most current. I don't want to upset anyone else's work on the server, so I'm going to work with it as-is.  
 
-2. Where are data stored? - from bash shell
+### 2. Where are data stored? - from bash shell
 ```
 $ cd /etc/mysql/mariadb.conf.d/
 $ less my.cnf
@@ -21,7 +21,7 @@ $ less my.cnf
 ```
 There's a ton of useful information in this file/directory. 
 
-3. Where are data stored? - from MariaDB shell
+### 3. Where are data stored? - from MariaDB shell
 ```
 > show databases;
 
@@ -49,7 +49,7 @@ Cool. My understanding is that information_schema is a standard MySQL datastruct
 ```
 Each of these commands shows various levels of the data contained in information_schema. 
 
-4. Recovering the admin password & creating a user
+### 4. Recovering the admin password & creating a user
 
 So this wasn't too bad. See [this article](https://www.liberiangeek.net/2014/10/reset-root-password-mariadb-centos-7/).
 
@@ -72,7 +72,3 @@ $ mysql -u root -p
 ```
 
 Obviously, sensitive information is withheld. 
-
-
-
-```
