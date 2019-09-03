@@ -71,4 +71,4 @@ $ mysql -u root -p
 > update user set password=PASSWORD("newpw") where User='new';
 ```
 
-Obviously, sensitive information is withheld. 
+Obviously, sensitive information is withheld. The created user essentially has root privileges. 
