@@ -33,7 +33,7 @@ There's a ton of useful information in this file/directory.
 1 row in set (0.00 sec)
 ```
 
-Cool. I think information_schema is a standard MySQL datastructure that self-populates with metadata from user-created dbs. Let's look around. 
+Cool. My understanding is that information_schema is a standard MySQL datastructure that self-populates with metadata from user-created dbs. Let's look around. 
 ```
 # Use a database
 > use information_schema;
@@ -47,4 +47,32 @@ Cool. I think information_schema is a standard MySQL datastructure that self-pop
 # Summarize contents of a given table
 > describe databasetablename;
 ```
+Each of these commands shows various levels of the data contained in information_schema. 
 
+4. Recovering the admin password & creating a user
+
+So this wasn't too bad. See [this article](https://www.liberiangeek.net/2014/10/reset-root-password-mariadb-centos-7/).
+
+I reset the admin password (the original installer had no idea what I was talking about) using the steps in the above article. 
+
+Now, to create a profile:
+```
+# Log in as root
+$ mysql -u root -p
+
+# Create user
+> CREATE USER 'new'@'localhost' IDENTIFIED BY PASSWORD('pw');
+
+# Grant root privileges
+> GRANT ALL PRIVILEGES ON * . * TO 'new'@'localhost';
+
+# Change password
+> use mysql
+> update user set password=PASSWORD("newpw") where User='new';
+```
+
+Obviously, sensitive information is withheld. 
+
+
+
+```
